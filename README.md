@@ -8,9 +8,10 @@ Reviews posted by customers of _Dixons Carphone_ and _ao.com_ on [Reevoo](https:
     - Reviews taken from [Reevoo](https://www.reevoo.com/en/) for _Dixons Carphone_ and _ao.com_
     
 2) **Pre-process reviews**
-    - Reviews contained no text
-    - Duplicate reviews
-    - Contained only numbers, dates, percentages, a single word, a single character and uninformative combinations of character
+    - Remove tweets that:
+        - Contain no text
+        - Are duplicates 
+        - Contain only numbers, dates, percentages, a single word, a single character and uninformative combinations of character
     
 3) **Text normalisation**
     - Tokenisation
