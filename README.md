@@ -2,7 +2,7 @@
 
 Reviews posted by customers of _Dixons Carphone_ and _ao.com_ on [Reevoo](https://www.reevoo.com/en/) are scraped and labelled as _positive_, _negative_ or _neutral_. The reviews are then categorised as relating to _customer service_, _deliveries_ or _other_. 
 
-Process completed:
+# Process:
 
 1) **Scrape reviews**
     - Reviews taken from [Reevoo](https://www.reevoo.com/en/) for _Dixons Carphone_ and _ao.com_
@@ -47,8 +47,8 @@ Process completed:
 
 ## Resources
 
-- [1) Code]()
-- [2) Data]()
+- [1) Code](https://github.com/Christopher-Loynes/Online_Review_Trends/wiki/Code)
+- [2) Data](https://github.com/Christopher-Loynes/Online_Review_Trends/wiki/Data)
 
 
 
