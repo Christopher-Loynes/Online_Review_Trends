@@ -2,8 +2,8 @@
 
 Code written as part of a group project for the MSc Business Analytics course. Group members:
 
-- [1) Denis Aleksandrowicz](https://www.linkedin.com/in/denis-aleksandrowicz-14438b131/)
-- [2) Alix Clare](https://www.linkedin.com/in/alixclare/) 
+- [1) Alix Clare](https://www.linkedin.com/in/alixclare/) 
+- [2) Denis Aleksandrowicz](https://www.linkedin.com/in/denis-aleksandrowicz-14438b131/)
 - [3) Prateek Bawa](https://www.linkedin.com/in/prateek-bawa-957a13ba/) 
 
 The results were presented back to _Dixons Carphone_, compared against _ao.com_.
