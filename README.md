@@ -10,7 +10,7 @@ Process completed:
     - Reviews contained no text
     - Duplicate reviews
     - Contained only numbers, dates, percentages, a single word, a single character and uninformative combinations of character
-3) **Text normalisation*
+3) **Text normalisation**
     - Tokenisation
     - Spell checking
     - Stop words
