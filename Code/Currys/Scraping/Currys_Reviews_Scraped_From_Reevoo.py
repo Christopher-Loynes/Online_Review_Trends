@@ -6,7 +6,7 @@ import time
 import csv
 import os.path
 
-driver = webdriver.Chrome(executable_path=r'/Users/prateek/Desktop/MSc/MWA/WebScraping/chromedriver')
+driver = webdriver.Chrome(executable_path=r'INSERT PATH')
 fileName = "CurrysReevooReviews.csv"
 to_Write = ["Reviews", "Delivery", "Customer Service", "Purchase Date", "LikeliHood To Recommend",
             "Overall Satisfaction", "Location", "Date Published"]

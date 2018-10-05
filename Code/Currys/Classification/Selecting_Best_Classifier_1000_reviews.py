@@ -1,9 +1,8 @@
 ## Importing data and split into training and test set
 import pandas as pd
 
-# Download file to dataframe - this file has already been normalized and been
-# Through sentiment analysis. We are only classifying the category at this point,
-# So we only care about the Reviews, Delivery and Customer Service labels
+# Download file to dataframe - this file has already been normalised and been through sentiment analysis
+# Only classifying the category at this point, therefore only care about the Reviews, Delivery and Customer Service labels
 chunksize = 10
 TextFileReader = pd.read_csv('ManuallyLabelledData.csv', chunksize=chunksize, header=None)
 dataset = pd.concat(TextFileReader, ignore_index=False)
@@ -28,7 +27,7 @@ del review
 # Creating the Bag of Words model
 from sklearn.feature_extraction.text import CountVectorizer
 
-# Vectorize the model for single words, bigrams, and trigrams
+# Vectorise the model for single words, bigrams, and trigrams
 cv_words = CountVectorizer(max_features = 5000)
 cv_bigrams = CountVectorizer(ngram_range = (2,2),max_features = 5000)
 cv_trigrams = CountVectorizer(ngram_range = (3,3), max_features = 5000)
@@ -100,27 +99,39 @@ def NBclassifier(X_train, X_test, y_train, y_test):
     #skplt.metrics.plot_roc_curve(y_test, probs, curves = 'each_class', title = 'ROC Curves - Naive Bayes Classifier')
     return probs, cm, score
 
-# Apply the classifier formula to the 6 datasets - including printing a ROC curve 
+# Apply the classifier formula to the 6 datasets - including printing a ROC curve
+
+# Naive Bayes - unigrams
 NB_words, cm1, score1 = NBclassifier(X_train_words, X_test_words, y_train, y_test)
 skplt.metrics.plot_roc_curve(y_test, NB_words, curves = 'each_class', title = 'ROC Curves - Single Word - Naive Bayes Classifier')
 plt.savefig('NB_unigrams.png')
 plt.close()
+
+# Naive Bayes - bigrams
 NB_bigrams, cm2, score2 = NBclassifier(X_train_bigrams, X_test_bigrams, y_train, y_test)
 skplt.metrics.plot_roc_curve(y_test, NB_bigrams, curves = 'each_class', title = 'ROC Curves - Bigrams - Naive Bayes Classifier')
 plt.savefig('NB_bigrams.png')
 plt.close()
+
+# Naive Bayes - trigrams
 NB_trigrams, cm3, score3 = NBclassifier(X_train_trigrams, X_test_trigrams, y_train, y_test)
 skplt.metrics.plot_roc_curve(y_test, NB_trigrams, curves = 'each_class', title = 'ROC Curves - Trigrams - Naive Bayes Classifier')
 plt.savefig('NB_trigram.png')
 plt.close()
+
+# Naive Bayes - unigrams (oversampled)
 NB_words_SMOTE, cm4, score4 = NBclassifier(X_train_res_words, X_test_words, y_train_words, y_test)
 skplt.metrics.plot_roc_curve(y_test, NB_words_SMOTE, curves = 'each_class', title = 'ROC Curves - Single Word with Oversampling - Naive Bayes Classifier')
 plt.savefig('NB_unigrams_SMOTE.png')
 plt.close()
+
+# Naive Bayes - bigrams (oversampled)
 NB_bigrams_SMOTE, cm5, score5 = NBclassifier(X_train_res_bigrams, X_test_bigrams, y_train_bigrams, y_test)
 skplt.metrics.plot_roc_curve(y_test, NB_bigrams_SMOTE, curves = 'each_class', title = 'ROC Curves - Bigrams with Oversampling - Naive Bayes Classifier')
 plt.savefig('NB_bigrams_SMOTE.png')
 plt.close()
+
+# Naive Bayes - trigrams (oversampled)
 NB_trigrams_SMOTE, cm6, score6 = NBclassifier(X_train_res_trigrams, X_test_trigrams, y_train_trigrams, y_test)
 skplt.metrics.plot_roc_curve(y_test, NB_trigrams_SMOTE, curves = 'each_class', title = 'ROC Curves - Trigrams with Oversampling - Naive Bayes Classifier')
 plt.savefig('NB_trigrams_SMOTE.png')
@@ -145,32 +156,44 @@ def RFclassifier(X_train, X_test, y_train, y_test):
     return probs, cm, score
 
 # Apply the classifier formula to the 6 datasets
+
+# Random Forest - unigrams
 RF_words, cm7, score7 = RFclassifier(X_train_words, X_test_words, y_train, y_test)
 skplt.metrics.plot_roc_curve(y_test, RF_words, curves = 'each_class', title = 'ROC Curves - Single Word - Random Forest Classifier')
 plt.savefig('RF_unigrams.png')
 plt.close()
+
+# Random Forest - bigrams
 RF_bigrams, cm8, score8 = RFclassifier(X_train_bigrams, X_test_bigrams, y_train, y_test)
 skplt.metrics.plot_roc_curve(y_test, RF_bigrams, curves = 'each_class', title = 'ROC Curves - Bigrams - Random Forest Classifier')
 plt.savefig('RF_bigrams.png')
 plt.close()
+
+# Random Forest - trigrams
 RF_trigrams, cm9, score9 = RFclassifier(X_train_trigrams, X_test_trigrams, y_train, y_test)
 skplt.metrics.plot_roc_curve(y_test, RF_trigrams, curves = 'each_class', title = 'ROC Curves - Trigrams - Random Forest Classifier')
 plt.savefig('RF_trigram.png')
 plt.close()
+
+# Random Forest - unigrams (oversampled)
 RF_words_SMOTE, cm10, score10 = RFclassifier(X_train_res_words, X_test_words, y_train_words, y_test)
 skplt.metrics.plot_roc_curve(y_test, RF_words_SMOTE, curves = 'each_class', title = 'ROC Curves - Single Word with Oversampling - Random Forest Classifier')
 plt.savefig('RF_unigrams_SMOTE.png')
 plt.close()
+
+# Random Forest - bigrams (oversampled)
 RF_bigrams_SMOTE, cm11, score11 = RFclassifier(X_train_res_bigrams, X_test_bigrams, y_train_bigrams, y_test)
 skplt.metrics.plot_roc_curve(y_test, RF_bigrams_SMOTE, curves = 'each_class', title = 'ROC Curves - Bigrams with Oversampling - Random Forest Classifier')
 plt.savefig('RF_bigrams_SMOTE.png')
 plt.close()
+
+# Random Forest - trigrams (oversampled)
 RF_trigrams_SMOTE, cm12, score12 = RFclassifier(X_train_res_trigrams, X_test_trigrams, y_train_trigrams, y_test)
 skplt.metrics.plot_roc_curve(y_test, RF_trigrams_SMOTE, curves = 'each_class', title = 'ROC Curves - Trigrams with Oversampling - Random Forest Classifier')
 plt.savefig('RF_trigrams_SMOTE.png')
 plt.close()
 
-### SVM CLASSIFIER ###
+### SUPPORT VECTOR CLASSIFIER (SVC) ###
 # Import the necessary classes
 from sklearn.svm import SVC
 
@@ -188,26 +211,38 @@ def SVclassifier(X_train, X_test, y_train, y_test):
     return probs, cm, score
 
 # Apply the classifier formula to the 6 datasets
+
+# SVC - unigrams
 SVC_words, cm13, score13  = SVclassifier(X_train_words, X_test_words, y_train, y_test)
 skplt.metrics.plot_roc_curve(y_test, SVC_words, curves = 'each_class', title = 'ROC Curves - Single Word - Support Vector Classifier')
 plt.savefig('SVC_unigrams.png')
 plt.close()
+
+# SVC - bigrams
 SVC_bigrams, cm14, score14 = SVclassifier(X_train_bigrams, X_test_bigrams, y_train, y_test)
 skplt.metrics.plot_roc_curve(y_test, SVC_bigrams, curves = 'each_class', title = 'ROC Curves - Bigrams - Support Vector Classifier')
 plt.savefig('SVC_bigrams.png')
 plt.close()
+
+# SVC - trigrams
 SVC_trigrams, cm15, score15 = SVclassifier(X_train_trigrams, X_test_trigrams, y_train, y_test)
 skplt.metrics.plot_roc_curve(y_test, SVC_trigrams, curves = 'each_class', title = 'ROC Curves - Trigrams - Support Vector Classifier')
 plt.savefig('SVC_trigram.png')
 plt.close()
+
+# SVC - unigrams (oversampled)
 SVC_words_SMOTE, cm16, score16 = SVclassifier(X_train_res_words, X_test_words, y_train_words, y_test)
 skplt.metrics.plot_roc_curve(y_test, SVC_words_SMOTE, curves = 'each_class', title = 'ROC Curves - Single Word with Oversampling - Support Vector Classifier')
 plt.savefig('SVC_unigrams_SMOTE.png')
 plt.close()
+
+# SVC - bigrams (oversampled)
 SVC_bigrams_SMOTE, cm17, score17 = SVclassifier(X_train_res_bigrams, X_test_bigrams, y_train_bigrams, y_test)
 skplt.metrics.plot_roc_curve(y_test, SVC_bigrams_SMOTE, curves = 'each_class', title = 'ROC Curves - Bigrams with Oversampling - Support Vector Classifier')
 plt.savefig('SVC_bigrams_SMOTE.png')
 plt.close()
+
+# SVC - trigrams (oversampled)
 SVC_trigrams_SMOTE, cm18, score18 = SVclassifier(X_train_res_trigrams, X_test_trigrams, y_train_trigrams, y_test)
 skplt.metrics.plot_roc_curve(y_test, SVC_trigrams_SMOTE, curves = 'each_class', title = 'ROC Curves - Trigrams with Oversampling - Support Vector Classifier')
 plt.savefig('SVC_trigrams_SMOTE.png')

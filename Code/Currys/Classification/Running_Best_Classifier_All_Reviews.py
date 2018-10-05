@@ -1,14 +1,14 @@
 ## Classification Model - download data and split into training and test sets
 import pandas as pd
 
-# Download file to dataframe - this file has already been normalized and been
-# Through sentiment analysis. We are only classifying the category at this point,
-# So we only care about the Reviews, Delivery and Customer Service labels
+# Download file to dataframe - this file has already been normaliSed and been through sentiment analysis
+# only classifying the category at this point, therefore only care about the Reviews, Delivery and Customer Service labels
 chunksize = 10
 TextFileReader = pd.read_csv('Copy of SentimentAnalysis_WithSpellcheck.csv', chunksize=chunksize, header=None)
 dataset = pd.concat(TextFileReader, ignore_index=False)
 dataset.columns = ['Reviews', 'Delivery', 'Customer_Service', 'Purchase_Date', 'Likelihood_to_Recommend',
                    'Overall_Satisfaction','Location', 'Date_Published','Sentiment']
+
 # Remove the first row from the dataset as these have the headers
 dataset = dataset.iloc[1:]
 
@@ -16,6 +16,7 @@ dataset = dataset.iloc[1:]
 corpus = []
 for i in range(1, 29779):
     review = dataset['Reviews'][i]
+    
     # Remove all capital letters
     review = review.lower()
     corpus.append(review)
@@ -23,7 +24,8 @@ for i in range(1, 29779):
 # Creating the Bag of Words model
 from sklearn.feature_extraction.text import CountVectorizer
 
-# Vectorize the model... ### We need to consider if we want to have a max number of words
+# Vectorise the model
+# Max features set to 5000, due to computational cost
 cv = CountVectorizer(max_features = 5000)
 
 # Transform the vector of words to an array containing values for each review
@@ -42,9 +44,9 @@ for i in range(1, 29779):
     elif dataset['Customer_Service'][i] == '2':
         y.append(0)
     elif dataset['Delivery'][i] == '0' and dataset['Customer_Service'][i] == '0':
-        y.append(0.5)  ## flaw in this as we had to choose one
+        y.append(0.5)  
     elif dataset['Delivery'][i] == '1' and dataset['Customer_Service'][i] == '1':
-        y.append(0.5)  ## flaw in this as we had to choose one
+        y.append(0.5)  
     elif dataset['Delivery'][i] == '0' and dataset['Customer_Service'][i] == '1':
         y.append(0)
     elif dataset['Delivery'][i] == '1' and dataset['Customer_Service'][i] == '0':
@@ -56,20 +58,20 @@ for i in range(1, 29779):
     elif dataset['Customer_Service'][i] == 2:
         y.append(0)
     elif dataset['Delivery'][i] == 0 and dataset['Customer_Service'][i] == 0:
-        y.append(0.5)  ## flaw in this as we had to choose one
+        y.append(0.5)  
     elif dataset['Delivery'][i] == 1 and dataset['Customer_Service'][i] == 1:
-        y.append(0.5)  ## flaw in this as we had to choose one
+        y.append(0.5)  
     elif dataset['Delivery'][i] == 0 and dataset['Customer_Service'][i] == 1:
         y.append(0)
     elif dataset['Delivery'][i] == 1 and dataset['Customer_Service'][i] == 0:
         y.append(1)
         
-    # Anything else - i.e. bad text, say needs review
+    # Anything else - i.e. bad text, say 'Needs Review'
     else:
         y.append('Needs Review')
         
-# For any y items that are marked as Needs Review, return the index - these will need 
-        # to be deleted from both X and Y
+# For any y items that are marked as 'Needs Review', return the index - these will need
+# to be deleted from both X and Y
         
 get_indexes = lambda y, xs: [i for (j, i) in zip(xs, range(len(xs))) if y == j]   
 del_idx = get_indexes('Needs Review',y)
@@ -94,11 +96,6 @@ X_train_res, y_train_res = sm.fit_sample(X_train, y_train)
 
 from collections import Counter
 class_check = Counter(y_train_res)
-
-# Use ADASYN to oversample the minority classes - this is too computationally expensive
-'''from imblearn.over_sampling import ADASYN
-ada = ADASYN(random_state=42)
-X_ada, y_ada = ada.fit_sample(X_train, y_train)'''
 
 ### Random Forest Classifier
 from sklearn.metrics import confusion_matrix
@@ -128,6 +125,7 @@ RF_words, cm, score = RFclassifier(X_train, X_test, y_train, y_test)
 skplt.metrics.plot_roc_curve(y_test, RF_words, curves = 'each_class', title = 'ROC Curves - Single Word - Random Forest Classifier')
 plt.savefig('RF.png')
 plt.close()
+
 RF_SMOTE, cm_wSMOTE, score_wSMOTE = RFclassifier(X_train_res, X_test, y_train_res, y_test)
 skplt.metrics.plot_roc_curve(y_test, RF_SMOTE, curves = 'each_class', title = 'ROC Curves - Bigrams - Random Forest Classifier')
 plt.savefig('RF_SMOTE.png')

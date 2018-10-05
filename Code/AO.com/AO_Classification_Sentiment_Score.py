@@ -1,9 +1,8 @@
 ## Classification Model - download data and split into training and test sets
 import pandas as pd
 
-# Download file to dataframe - this file has already been normalized and been
-# Through sentiment analysis. We are only classifying the category at this point,
-# So we only care about the Reviews, Delivery and Customer Service labels
+# Download file to dataframe - this file has already been normalised and been hrough sentiment analysis
+# Only classifying the category, therefore only concerned with Reviews, Delivery and Customer Service labels
 chunksize = 10
 TextFileReader = pd.read_csv('AOComReviews.csv', chunksize=chunksize, header=None,encoding='latin-1')
 dataset = pd.concat(TextFileReader, ignore_index=False)
@@ -25,7 +24,8 @@ for i in range(1, 471):
 # Create the Bag of Words model
 from sklearn.feature_extraction.text import CountVectorizer
 
-# Vectorize the model... ### We need to consider if we want to have a max number of words
+# Vectorise the model
+# Max features set to 5000, due to computational cost
 cv = CountVectorizer(max_features = 5000)
 
 # Transform the vector of words to an array containing values for each review
@@ -44,9 +44,9 @@ for i in range(1, 471):
     elif dataset['Customer_Service'][i] == '2':
         y.append(0)
     elif dataset['Delivery'][i] == '0' and dataset['Customer_Service'][i] == '0':
-        y.append(0.5)  ## flaw in this as we had to choose one
+        y.append(0.5)  
     elif dataset['Delivery'][i] == '1' and dataset['Customer_Service'][i] == '1':
-        y.append(0.5)  ## flaw in this as we had to choose one
+        y.append(0.5)  
     elif dataset['Delivery'][i] == '0' and dataset['Customer_Service'][i] == '1':
         y.append(0)
     elif dataset['Delivery'][i] == '1' and dataset['Customer_Service'][i] == '0':
@@ -58,9 +58,9 @@ for i in range(1, 471):
     elif dataset['Customer_Service'][i] == 2:
         y.append(0)
     elif dataset['Delivery'][i] == 0 and dataset['Customer_Service'][i] == 0:
-        y.append(0.5)  ## flaw in this as we had to choose one
+        y.append(0.5)  
     elif dataset['Delivery'][i] == 1 and dataset['Customer_Service'][i] == 1:
-        y.append(0.5)  ## flaw in this as we had to choose one
+        y.append(0.5)  
     elif dataset['Delivery'][i] == 0 and dataset['Customer_Service'][i] == 1:
         y.append(0)
     elif dataset['Delivery'][i] == 1 and dataset['Customer_Service'][i] == 0:
@@ -87,6 +87,7 @@ for item in del_idx:
     
 # Split the dataset into the Training set and Test set
 from sklearn.cross_validation import train_test_split
+
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.25, random_state = 0)
 
 # Use SMOTE to oversample the minority classes
@@ -97,16 +98,13 @@ X_train_res, y_train_res = sm.fit_sample(X_train, y_train)
 from collections import Counter
 class_check = Counter(y_train_res)
 
-# Use ADASYN to oversample the minority classes - this is too computationally expensive
-'''from imblearn.over_sampling import ADASYN
-ada = ADASYN(random_state=42)
-X_ada, y_ada = ada.fit_sample(X_train, y_train)'''
-
 ### Random Forest Classifier
 from sklearn.metrics import confusion_matrix
 target_names = ['Customer_Service', 'Delivery']
+
 from sklearn.metrics import f1_score
 file = open('AOCom Reviews.txt','w')
+
 import scikitplot as skplt
 import matplotlib.pyplot as plt
 from sklearn.ensemble import RandomForestClassifier
@@ -131,6 +129,7 @@ RF_words, cm, score, y_pred, y_pred_all = RFclassifier(X_train, X_test, y_train,
 skplt.metrics.plot_roc_curve(y_test, RF_words, curves = 'each_class', title = 'ROC Curves - Single Word (AO.com) - Random Forest Classifier')
 plt.savefig('AO_RF.png')
 plt.close()
+
 RF_SMOTE, cm_wSMOTE, score_wSMOTE, y_pred_SMOTE, y_pred_SMOTE_all = RFclassifier(X_train_res, X_test, y_train_res, y_test, X)
 skplt.metrics.plot_roc_curve(y_test, RF_SMOTE, curves = 'each_class', title = 'ROC Curves - Single Word using SMOTE (AO.com) - Random Forest Classifier')
 plt.savefig('AO_RF_SMOTE.png')
