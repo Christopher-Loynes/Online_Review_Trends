@@ -42,7 +42,7 @@ Process completed:
    - Specifically in London, Birmingham and Liverpool
    - Train staff to improve their interactions with customers (ao.com)
    - Consider closing down stores in underperforming areas
-      - Shortly after, Currys announced they would [close 92 store](https://www.bbc.co.uk/news/business-44286924)
+      - Shortly after, Currys announced they would [close 92 stores](https://www.bbc.co.uk/news/business-44286924)
 
 
 ## Resources
