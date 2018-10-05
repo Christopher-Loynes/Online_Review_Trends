@@ -1,6 +1,16 @@
 # Sentiment analysis and classification of reviews posted by customers of Dixons Carphone and ao.com 
 
-Reviews posted by customers of _Dixons Carphone_ and _ao.com_ on [Reevoo](https://www.reevoo.com/en/) are scraped and labelled as _positive_, _negative_ or _neutral_. The reviews are then categorised as relating to _customer service_, _deliveries_ or _other_. 
+Code written as part of a group project for the MSc Business Analytics course. Group members:
+
+- [1) Denis Aleksandrowicz](https://www.linkedin.com/in/denis-aleksandrowicz-14438b131/)
+- [2) Alix Clare](https://www.linkedin.com/in/alixclare/) 
+- [3) Prateek Bawa](https://www.linkedin.com/in/prateek-bawa-957a13ba/) 
+
+The results were presented back to _Dixons Carphone_, compared against _ao.com_.
+
+# Overview
+
+Reviews posted by customers of _Dixons Carphone_ and _ao.com_ on [Reevoo](https://www.reevoo.com/en/) are scraped and labelled as _positive_ or _negative_. The reviews are then categorised as relating to _customer service_, _deliveries_ or _other_. The processed tweets were then displayed in Tableau to visually demonstrate the findings to _Dixons Carphone_.
 
 # Process:
 
@@ -56,12 +66,14 @@ Reviews posted by customers of _Dixons Carphone_ and _ao.com_ on [Reevoo](https:
 ## Results
 
 - 87% of _delivery_ reviews for Currys are positive
+
 - 37% of _customer services_ reviews Currys are positive
    - Concentrated around London, Birmingham and Liverpool
    - Specifically poor _KnowHow_ service documented on _Reevoo_ 
+   
 - Recommended to Currys that they improve their customer services:
    - Specifically in London, Birmingham and Liverpool
-   - Train staff to improve their interactions with customers (ao.com)
+   - Train staff to improve their interactions with customers, in particular the _KnowHow_ teams
    - Consider closing down stores in underperforming areas
       - Shortly after, Currys announced they would [close 92 stores](https://www.bbc.co.uk/news/business-44286924)
 
