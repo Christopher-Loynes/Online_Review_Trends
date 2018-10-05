@@ -36,8 +36,14 @@ Process completed:
 
 - 87% of _delivery_ reviews for Currys are positive
 - 37% of _customer services_ reviews Currys are positive
-   - Concentrated around London, Birmingham and London
-     - Specifically poor _KnowHow_ service documented on _Reevoo_ 
+   - Concentrated around London, Birmingham and Liverpool
+   - Specifically poor _KnowHow_ service documented on _Reevoo_ 
+- Recommended to Currys that they improve their customer services:
+   - Specifically in London, Birmingham and Liverpool
+   - Train staff to improve their interactions with customers (ao.com)
+   - Consider closing down stores in underperforming areas
+      - Shortly after, Currys announced they would [close 92 store](https://www.bbc.co.uk/news/business-44286924)
+
 
 ## Resources
 
