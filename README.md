@@ -16,8 +16,8 @@ Reviews posted by customers of _Dixons Carphone_ and _ao.com_ on [Reevoo](https:
 
 1) **Scrape reviews**
     - Reviews taken from [Reevoo](https://www.reevoo.com/en/) for _Dixons Carphone_ and _ao.com_
-        - Selected as reviews have labels relating to _Customer Service_ and _Delivery_
-        - Labels used to determine the effectiveness of the _sentiment analysis_ and _classification_ performed
+        - _Reevoo_ selected as its reviews have labels relating to _Customer Service_ and _Delivery_
+        - Labels are used to determine the effectiveness of the _sentiment analysis_ and _classification_ performed
     
 2) **Pre-process reviews**
     - Remove tweets that:
@@ -26,9 +26,12 @@ Reviews posted by customers of _Dixons Carphone_ and _ao.com_ on [Reevoo](https:
         - Contain only numbers, dates, percentages, a single word, a single character and uninformative combinations of characters
     
 3) **Text normalisation**
-    - Tokenisation
-    - Spell checking
-    - Stop words
+    _**Performed:**_
+       - Tokenisation
+       - Spell checking
+       - Stop words
+    _**Explored but not performed:**_
+       - Case folding, Lemmatisation, Stemming, Punctuation and Slang
     
 4) **Sentiment analysis**
     - 3 different approaches tested:
@@ -39,7 +42,7 @@ Reviews posted by customers of _Dixons Carphone_ and _ao.com_ on [Reevoo](https:
         - 0 = user is unhappy
         - 1 = user is satisified
         - 2 = label is missing 
-    - Evaluated based on _micro-average F1 scores_ calculated _confusion matrices_
+    - Different approaches evaluated based on _micro-average F1 scores_ calculated using _confusion matrices_
       
 5) **Sample Bias Correction**
     - _Synthetic Minority Over-sampling Technique (SMOTE)_ to correct class imbalances
