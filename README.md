@@ -10,7 +10,7 @@ The results were presented back to _Dixons Carphone_ and compared against _ao.co
 
 # Overview
 
-Reviews posted by customers of _Dixons Carphone_ and _ao.com_ on [Reevoo](https://www.reevoo.com/en/) are scraped and labelled as _positive_ or _negative_. The reviews are then categorised as relating to _customer service_, _deliveries_ or _other_. During testing, labels provided by users on _Reevoo_ were used to select _Textblob_ for sentiment analysis and a _Random Forest_ text classifier that uses unigrams. For the prokect, the processed tweets were displayed in Tableau to visually demonstrate the findings to _Dixons Carphone_.
+Reviews posted by customers of _Dixons Carphone_ and _ao.com_ on [Reevoo](https://www.reevoo.com/en/) are scraped and labelled as _positive_ or _negative_. The reviews are then categorised as relating to _customer service_, _deliveries_ or _other_. During testing, labels provided by users on _Reevoo_ were used to select _Textblob_ for sentiment analysis and a _Random Forest_ text classifier that uses unigrams. For the project, the processed tweets were displayed in Tableau to visually demonstrate the findings to _Dixons Carphone_.
 
 # Process:
 
@@ -40,7 +40,7 @@ Reviews posted by customers of _Dixons Carphone_ and _ao.com_ on [Reevoo](https:
       - TextBlob
     - Effectiveness of an approach is based on the sentiment predicted, against the labels provided on Reevoo:
         - 0 = user is unhappy
-        - 1 = user is satisified
+        - 1 = user is satisfied
         - 2 = label is missing 
     - Different approaches evaluated based on _micro-average F1 scores_ calculated using _confusion matrices_
       
@@ -63,7 +63,7 @@ Reviews posted by customers of _Dixons Carphone_ and _ao.com_ on [Reevoo](https:
 ## Final Selection
 
 - _Unigrams_
-- _Textblobs_ for _sentiment analysis_
+- _Textblob_ for _sentiment analysis_
 - _Random Forest_ for _text classification_
 
 ## Results
@@ -72,10 +72,10 @@ Reviews posted by customers of _Dixons Carphone_ and _ao.com_ on [Reevoo](https:
 
 - 37% of _customer services_ reviews Currys are positive
    - Concentrated around London, Birmingham and Liverpool
-   - Specifically poor _KnowHow_ service documented on _Reevoo_ 
+   - Specifically, poor _KnowHow_ service documented on _Reevoo_ 
    
 - Recommended to Currys that they improve their customer services:
-   - Specifically in London, Birmingham and Liverpool
+   - Specifically, in London, Birmingham and Liverpool
    - Train staff to improve their interactions with customers, in particular the _KnowHow_ teams
    - Consider closing down stores in underperforming areas
       - Shortly after, Currys announced they would [close 92 stores](https://www.bbc.co.uk/news/business-44286924)
