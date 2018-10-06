@@ -6,7 +6,7 @@ Code written as part of a group project for the MSc Business Analytics course. G
 - [2) Denis Aleksandrowicz](https://www.linkedin.com/in/denis-aleksandrowicz-14438b131/)
 - [3) Prateek Bawa](https://www.linkedin.com/in/prateek-bawa-957a13ba/) 
 
-The results were presented back to _Dixons Carphone_, compared against _ao.com_.
+The results were presented back to _Dixons Carphone_ and compared against _ao.com_.
 
 # Overview
 
