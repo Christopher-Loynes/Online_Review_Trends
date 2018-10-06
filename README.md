@@ -26,12 +26,16 @@ Reviews posted by customers of _Dixons Carphone_ and _ao.com_ on [Reevoo](https:
         - Contain only numbers, dates, percentages, a single word, a single character and uninformative combinations of characters
     
 3) **Text normalisation**
-    _**Performed:**_
-       - Tokenisation
-       - Spell checking
-       - Stop words
-    _**Explored but not performed:**_
-       - Case folding, Lemmatisation, Stemming, Punctuation and Slang
+    - _**Performed:**_
+         - Tokenisation
+         - Spell checking
+         - Stop words
+    - _**Explored but not performed:**_
+         - Case folding
+         - Lemmatisation
+         - Stemming
+         - Punctuation
+         - Slang
     
 4) **Sentiment analysis**
     - 3 different approaches tested:
@@ -68,13 +72,13 @@ Reviews posted by customers of _Dixons Carphone_ and _ao.com_ on [Reevoo](https:
 
 ## Results
 
-- 87% of _delivery_ reviews for Currys are positive
+- _**87% of _delivery_ reviews for Currys are positive**_
 
-- 37% of _customer services_ reviews Currys are positive
+- _**37% of _customer services_ reviews Currys are positive**_
    - Concentrated around London, Birmingham and Liverpool
    - Specifically, poor _KnowHow_ service documented on _Reevoo_ 
    
-- Recommended to Currys that they improve their customer services:
+- _**Recommended to Currys that they improve their customer services:**_
    - Specifically, in London, Birmingham and Liverpool
    - Train staff to improve their interactions with customers, in particular the _KnowHow_ teams
    - Consider closing down stores in underperforming areas
