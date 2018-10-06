@@ -10,7 +10,7 @@ The results were presented back to _Dixons Carphone_ and compared against _ao.co
 
 # Overview
 
-Reviews posted by customers of _Dixons Carphone_ and _ao.com_ on [Reevoo](https://www.reevoo.com/en/) are scraped and labelled as _positive_ or _negative_. The reviews are then categorised as relating to _customer service_, _deliveries_ or _other_. The processed tweets were then displayed in Tableau to visually demonstrate the findings to _Dixons Carphone_.
+Reviews posted by customers of _Dixons Carphone_ and _ao.com_ on [Reevoo](https://www.reevoo.com/en/) are scraped and labelled as _positive_ or _negative_. The reviews are then categorised as relating to _customer service_, _deliveries_ or _other_. During testing, labels provided by users on _Reevoo_ were used to select _Textblob_ for sentiment analysis and a _Random Forest_ text classifier that uses unigrams. For the prokect, the processed tweets were displayed in Tableau to visually demonstrate the findings to _Dixons Carphone_.
 
 # Process:
 
