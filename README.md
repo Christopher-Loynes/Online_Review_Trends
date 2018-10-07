@@ -15,7 +15,7 @@ Reviews posted by customers of _Dixons Carphone_ and _ao.com_ on [Reevoo](https:
 # Process:
 
 1) **Scrape reviews**
-    - Reviews taken from [Reevoo](https://www.reevoo.com/en/) for _Dixons Carphone_ and _ao.com_
+    - Reviews taken from _Reevoo_ for _Dixons Carphone_ and _ao.com_
         - _Reevoo_ selected as its reviews have labels relating to _Customer Service_ and _Delivery_
         - Labels are used to determine the effectiveness of the _sentiment analysis_ and _classification_ performed
     
@@ -39,9 +39,9 @@ Reviews posted by customers of _Dixons Carphone_ and _ao.com_ on [Reevoo](https:
     
 4) **Sentiment analysis**
     - 3 different approaches tested:
-      - SentiWordNet
-      - Stanford CoreNLP
-      - TextBlob
+      - _SentiWordNet_
+      - _Stanford CoreNLP_
+      - _TextBlob_
     - Effectiveness of an approach is based on the sentiment predicted, against the labels provided on _Reevoo_:
         - 0 = user is unhappy
         - 1 = user is satisfied
@@ -53,9 +53,9 @@ Reviews posted by customers of _Dixons Carphone_ and _ao.com_ on [Reevoo](https:
     
 6) **Classify reviews**
      - 3 different models tested:
-       - Naive Bayes
-       - Random Forest
-       - Support Vector Classifier
+       - _Naive Bayes_
+       - _Random Forest_
+       - _Support Vector Classifier_
      - Each model tested on unigrams, bigrams and trigrams
      - Evaluated on _micro-average F1 scores_ calculated using _confusion matrices_
      - Labels provided on _Reevoo_ used to determine the effectiveness of a classifier
