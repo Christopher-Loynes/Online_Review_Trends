@@ -27,15 +27,15 @@ Reviews posted by customers of _Dixons Carphone_ and _ao.com_ on [Reevoo](https:
     
 3) **Text normalisation**
     - _**Performed:**_
-         - Tokenisation
-         - Spell checking
-         - Stop words
+         - _Tokenisation_
+         - _Spell checking_
+         - _Stop words_
     - _**Explored but not performed:**_
-         - Case folding
-         - Lemmatisation
-         - Stemming
-         - Punctuation
-         - Slang
+         - _Case folding_
+         - _Lemmatisation_
+         - _Stemming_
+         - _Punctuation_
+         - _Slang_
     
 4) **Sentiment analysis**
     - 3 different approaches tested:
@@ -56,7 +56,7 @@ Reviews posted by customers of _Dixons Carphone_ and _ao.com_ on [Reevoo](https:
        - _Naive Bayes_
        - _Random Forest_
        - _Support Vector Classifier_
-     - Each model tested on unigrams, bigrams and trigrams
+     - Each model tested on _unigrams_, _bigrams_ and _trigrams_
      - Evaluated on _micro-average F1 scores_ calculated using _confusion matrices_
      - Labels provided on _Reevoo_ used to determine the effectiveness of a classifier
      - The following rules are used for classification:
